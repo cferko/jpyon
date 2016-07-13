@@ -47,6 +47,27 @@ public class TestParser {
         assertEquals(pyob.get("bar").toString(),"snack()");
 
     }
+
+    @Test
+    public void testReadScalar() throws Exception {
+    	String scalar_int = "42";
+    	String scalar_float = "3.14";
+    	String scalar_bool = "true";
+    	String scalar_null = "null";
+    	String scalar_string = "'derp'";
+    	
+        Object int_val = Parser.parse(scalar_int);
+        Object float_val = Parser.parse(scalar_float);
+        Object bool_val = Parser.parse(scalar_bool);
+        Object null_val = Parser.parse(scalar_null);
+        Object string_val = Parser.parse(scalar_string);
+        
+        assertEquals(int_val, 42);
+        assertEquals(float_val, 3.14);
+        assertEquals(bool_val, true);
+        assertEquals(null_val, null);
+        assertEquals(string_val, "derp");
+    }
     
     @Test
     public void testAll() throws Exception {
